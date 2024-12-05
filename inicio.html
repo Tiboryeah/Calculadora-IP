@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Figueroa González Adrián Iván, Martínez García Esmeralda, Martínez López Gerardo Esteban">
+    <meta name="description" content="Pagina que permite hacer el calculora de IP">
     <title> Calculadora de Direcciones IP</title>
     <style>
         
@@ -60,9 +62,34 @@
             margin: 5px 0;
             font-size: 14px;
         }
+        /* Posicionamos las imágenes en las esquinas */
+header {
+    position: relative;
+    width: 100%;
+    height: 100px; /* Ajusta la altura según el tamaño de las imágenes */
+}
+
+.left-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px; /* Ajusta según el tamaño de la imagen */
+}
+
+.right-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100px; /* Ajusta según el tamaño de la imagen */
+}
+
     </style>
 </head>
 <body>
+    <header>
+        <img src="images/ipn.png" alt="Imagen 1" class="left-image">
+        <img src="images/escom.png" alt="Imagen 2" class="right-image">
+    </header>
     <h1 style="text-align: center;">Calculadora de Direcciones IP</h1>
     
     <label for="ip"> <strong>Dirección IP(Address):</strong></label>
