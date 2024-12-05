@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculadora de Direcciones IP</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 16px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Calculadora de Direcciones IP</h1>
+    
+    <label for="ip"> <strong>Dirección IP(Address):</strong></label>
+    <input type="text" id="ip" value="192.168.0.1">
+    
+    <label for="netmask"><strong>Máscara de subred (i.e. 24):</strong></label>
+    <input type="text" id="netmask" value="24">
+    
+    <label for="netmask2"><strong>Máscara de subred para sub/superred (opcional):</strong></label>
+    <input type="text" id="netmask2">
+    
+    <button onclick="calcular()" style="color: green;"><strong>Calcular</strong></button>
+    
+    <!-- Tabla de resultados originales -->
+    <div id="resultadosOriginales">
+        <h3>Resultados Originales</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                    <th>Binario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Address</td>
+                    <td id="address"></td>
+                    <td id="addressBinary"></td>
+                </tr>
+                <tr>
+                    <td>Netmask</td>
+                    <td id="netmaskResult"></td>
+                    <td id="netmaskBinary"></td>
+                </tr>
+                <tr>
+                    <td>Wildcard</td>
+                    <td id="wildcard"></td>
+                    <td id="wildcardBinary"></td>
+                </tr>
+                <tr>
+                    <td>Network</td>
+                    <td id="network"></td>
+                    <td id="networkBinary"></td>
+                </tr>
+                <tr>
+                    <td>HostMin</td>
+                    <td id="hostMin"></td>
+                    <td id="hostMinBinary"></td>
+                </tr>
+                <tr>
+                    <td>HostMax</td>
+                    <td id="hostMax"></td>
+                    <td id="hostMaxBinary"></td>
+                </tr>
+                <tr>
+                    <td>Broadcast</td>
+                    <td id="broadcast"></td>
+                    <td id="broadcastBinary"></td>
+                </tr>
+                <tr>
+                    <td>Hosts/Net</td>
+                    <td id="hostsNet"></td>
+                    <td id="class"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tabla de resultados con sub/super red (si se proporciona una máscara secundaria) -->
+    <div id="resultadosSubredes" class="hidden section">
+        <h3>Resultados con Subredes/Superredes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                    <th>Binario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Address</td>
+                    <td id="addressSubred"></td>
+                    <td id="addressBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>Netmask</td>
+                    <td id="netmaskResultSubred"></td>
+                    <td id="netmaskBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>Wildcard</td>
+                    <td id="wildcardSubred"></td>
+                    <td id="wildcardBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>Network</td>
+                    <td id="networkSubred"></td>
+                    <td id="networkBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>HostMin</td>
+                    <td id="hostMinSubred"></td>
+                    <td id="hostMinBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>HostMax</td>
+                    <td id="hostMaxSubred"></td>
+                    <td id="hostMaxBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>Broadcast</td>
+                    <td id="broadcastSubred"></td>
+                    <td id="broadcastBinarySubred"></td>
+                </tr>
+                <tr>
+                    <td>Hosts/Net</td>
+                    <td id="hostsNetSubred"></td>
+                    <td id="classSubred"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p><strong>Equipo:</strong></p>
+        <p>Figueroa González Adrián Iván</p>
+        <p>Martínez García Esmeralda</p>
+        <p>Martínez López Gerardo Esteban</p>
+        <p><strong>&copy; 2024 Derechos reservados. Desarrollado por alumnos de ESCOM</strong></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
