@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Figueroa González Adrián Iván, Martínez García Esmeralda, Martínez López Gerardo Esteban">
-    <meta name="description" content="Pagina que permite hacer el calculora de IP">
-    <title> Calculadora de Direcciones IP</title>
+    <meta name="description" content="Página que permite hacer el cálculo de IP">
+    <title>Calculadora de Direcciones IP</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -62,27 +61,26 @@
             margin: 5px 0;
             font-size: 14px;
         }
-        /* Posicionamos las imágenes en las esquinas */
-header {
-    position: relative;
-    width: 100%;
-    height: 100px; /* Ajusta la altura según el tamaño de las imágenes */
-}
 
-.left-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100px; /* Ajusta según el tamaño de la imagen */
-}
+        header {
+            position: relative;
+            width: 100%;
+            height: 100px;
+        }
 
-.right-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100px; /* Ajusta según el tamaño de la imagen */
-}
+        .left-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100px;
+        }
 
+        .right-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -92,10 +90,10 @@ header {
     </header>
     <h1 style="text-align: center;">Calculadora de Direcciones IP</h1>
     
-    <label for="ip"> <strong>Dirección IP(Address):</strong></label>
+    <label for="ip"><strong>Dirección IP (Address):</strong></label>
     <input type="text" id="ip" value="192.168.0.1">
     
-    <label for="netmask"><strong>Máscara de subred (i.e. 24):</strong></label>
+    <label for="netmask"><strong>Máscara de subred (CIDR):</strong></label>
     <input type="text" id="netmask" value="24">
     
     <label for="netmask2"><strong>Máscara de subred para sub/superred (opcional):</strong></label>
@@ -103,7 +101,6 @@ header {
     
     <button onclick="calcular()" style="color: green;"><strong>Calcular</strong></button>
     
-    <!-- Tabla de resultados originales -->
     <div id="resultadosOriginales">
         <h3>Resultados Originales</h3>
         <table>
@@ -159,63 +156,10 @@ header {
         </table>
     </div>
 
-    <!-- Tabla de resultados con sub/super red (si se proporciona una máscara secundaria) -->
-    <div id="resultadosSubredes" class="hidden section">
-        <h3>Resultados con Subredes/Superredes</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
-                    <th>Binario</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Address</td>
-                    <td id="addressSubred"></td>
-                    <td id="addressBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>Netmask</td>
-                    <td id="netmaskResultSubred"></td>
-                    <td id="netmaskBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>Wildcard</td>
-                    <td id="wildcardSubred"></td>
-                    <td id="wildcardBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>Network</td>
-                    <td id="networkSubred"></td>
-                    <td id="networkBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>HostMin</td>
-                    <td id="hostMinSubred"></td>
-                    <td id="hostMinBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>HostMax</td>
-                    <td id="hostMaxSubred"></td>
-                    <td id="hostMaxBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>Broadcast</td>
-                    <td id="broadcastSubred"></td>
-                    <td id="broadcastBinarySubred"></td>
-                </tr>
-                <tr>
-                    <td>Hosts/Net</td>
-                    <td id="hostsNetSubred"></td>
-                    <td id="classSubred"></td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="transicionesSubredes" class="section">
+        <h3>Transiciones de Subredes</h3>
     </div>
 
-    <!-- Pie de página -->
     <footer>
         <p><strong>Equipo:</strong></p>
         <p>Figueroa González Adrián Iván</p>
